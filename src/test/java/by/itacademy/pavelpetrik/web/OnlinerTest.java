@@ -24,6 +24,16 @@ public class OnlinerTest {
     }
     @Test
     public void testOpenOnlinerLoginForm(){
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get(OnlinerPage.URL);
+        WebElement btnEntrance = driver.findElement(By.xpath(OnlinerPage.BTN_ENTRANCE));
+        btnEntrance.click();
+        WebElement textOfBtnElement = driver.findElement(By.xpath(OnlinerPage.LABEL_ENTRANCE));
+        Assert.assertEquals("Text", "Вход", textOfBtnElement.getText());
+        driver.quit();
+
 
     }
 }
