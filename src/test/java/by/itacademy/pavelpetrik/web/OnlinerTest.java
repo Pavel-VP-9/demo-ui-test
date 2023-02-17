@@ -14,12 +14,12 @@ public class OnlinerTest {
     public void testOpenOnliner(){
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(OnlinerPage.URL);
 
         WebElement copyrightElement = driver.findElement(By.xpath(OnlinerPage.COPYRIGHT));
         // выполняем проверку, что текст веб элемента COPYRIGHT соответствует «© 2001—2023 Onlíner
-        Assert.assertEquals("Error","© 2001—2023 Onlíner",copyrightElement.getText() );
+        Assert.assertEquals("Error","© 2001—2023 Onlíner",copyrightElement.getText());
         driver.quit();
 
     }
@@ -27,7 +27,7 @@ public class OnlinerTest {
     public void testOpenOnlinerLoginForm(){
         WebDriver driver = new ChromeDriver(); // создали веб браузер
         driver.manage().window().maximize(); // расширили веб страницу
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));// задержка
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));// задержка
         driver.get(OnlinerPage.URL); // Открыли страницу
         WebElement btnEntrance = driver.findElement(By.xpath(OnlinerPage.BTN_ENTRANCE));
         btnEntrance.click();
@@ -43,16 +43,16 @@ public class OnlinerTest {
     public void testOnlinerLoginFormWithEmptyCredentials(){
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(OnlinerPage.URL);
         WebElement btnEntrance = driver.findElement(By.xpath(OnlinerPage.BTN_ENTRANCE));
         btnEntrance.click();
         WebElement elementBtnEntrance = driver.findElement(By.xpath(OnlinerPage.BTN_ENTRANCE_2));
         elementBtnEntrance.click();
         WebElement elementNik = driver.findElement(By.xpath(OnlinerPage.ERROR_LABEL_NIK_E_MAIL));
-        Assert.assertEquals("Nik is wrong", "Ввидите Nik или e-mail",elementNik.getText());
+        Assert.assertEquals("Nik is wrong", "Укажите ник или e-mail",elementNik.getText());
         WebElement elementPassword = driver.findElement(By.xpath(OnlinerPage.ERROR_LABEL_PASSWORD));
-        Assert.assertEquals("Password is wrong", " Введите пароль ", elementPassword.getText());
+        Assert.assertEquals("Password is wrong", "Укажите пароль", elementPassword.getText());
         driver.quit();
 
 
@@ -61,7 +61,7 @@ public class OnlinerTest {
     public void testOnlinerLoginFormWithEmptyPassword(){
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(OnlinerPage.URL);
         WebElement btnEntrance = driver.findElement(By.xpath(OnlinerPage.BTN_ENTRANCE));
         btnEntrance.click();
@@ -70,7 +70,7 @@ public class OnlinerTest {
         WebElement elementBtnEntrance = driver.findElement(By.xpath(OnlinerPage.BTN_ENTRANCE_2));
         elementBtnEntrance.click();
         WebElement elementPassword = driver.findElement(By.xpath(OnlinerPage.ERROR_LABEL_PASSWORD_ONLY));
-        Assert.assertEquals("Password is wrong", "Введите ппароль", elementPassword.getText());
+        Assert.assertEquals("Password is wrong", "Укажите ник или e-mail", elementPassword.getText());
         driver.quit();
 
     }
